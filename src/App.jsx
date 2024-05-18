@@ -7,7 +7,7 @@ export const App = () => {
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => { setLoader(false) }, 3000)
+    setTimeout(() => { setLoader(false) }, 1000)
   }, [])
 
   return (
