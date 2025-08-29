@@ -1,25 +1,44 @@
-const mongoose = require('mongoose');
+import { Schema, model } from "mongoose";
 
-const contactSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: ['Full name is required']
+// Define schema
+const contactSchema = new Schema(
+  {
+    fullname: { type: String, required: [true, "Full name is required"] },
+    email: { type: String, required: [true, "Email is required"] },
+    title: { type: String, required: [true, "Title is required"] },
+    message: { type: String, required: [true, "Message is required"] },
   },
+  { timestamps: true }
+);
 
-  email: {
-    type: String,
-    required: ['Enter email']
-  },
+// Create model
+const Contact = model("Contact", contactSchema);
 
-  subject: {
-    type: String,
-  },
+// Function to create a new contact message
+const create = async (name, email, subject, message) => {
+  try {
+    const newMessage = new Contact({
+      fullname: name,
+      email,
+      title: subject,
+      message,
+    });
 
-  message: {
-    type: String,
-    required: ['Message cannot be empty ']
+    const savedMessage = await newMessage.save();
+    return savedMessage;
+  } catch (error) {
+    throw new Error(error.message);
   }
-}, { timestamps: true })
+};
 
-const contactModel = mongoose.model("Contact", contactSchema)
-module.exports = contactModel
+// Function to get all contacts
+const getContacts = async () => {
+    try {
+        const contacts = await Contact.find();
+        return contacts;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+export { create, getContacts, Contact };

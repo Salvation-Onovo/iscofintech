@@ -1,8 +1,7 @@
-import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
-const Project = () => {
+const Services = () => {
   return (
     <>
       <div className="w-full h-screen">
@@ -21,7 +20,7 @@ const Project = () => {
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Project;
+export default Services

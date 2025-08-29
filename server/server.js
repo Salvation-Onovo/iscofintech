@@ -1,7 +1,9 @@
-const express = require('express')
-const cors = require('cors')
-const morgan = require('morgan')
-const contactRoute = require('./routes/contact.routes')
+import express, { json, urlencoded } from "express";
+
+import cors from "cors";
+// import morgan from "morgan";
+import contactRoute from "./routes/contact_routes.js";
+import adminRoute from "./routes/admin_routes.js";
 
 const app = express()
 
@@ -10,16 +12,19 @@ const app = express()
 app.use(cors({ origin: "*" }))
 // app.use(morgan("dev"))
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(json())
+app.use(urlencoded({ extended: true }))
 
 app.use('/api/v1/contact', contactRoute)
+app.use('/api/v1/admin', adminRoute)
 
 
 // CONNECT TO DB
-const connectToDB = require("./config/database")
+import connectToDB from "./config/database.js";
 connectToDB(() => {
-  // CREATE SEVER PORT
-  const PORT = 5000
-  app.listen(PORT, console.log(`Server running on http://localhost:${PORT}`))
-})
+  console.log('Database connected successfully');  
+});
+
+// CREATE SEVER PORT
+const PORT = 5000
+app.listen(PORT, console.log(`Server running on http://localhost:${PORT}`))
