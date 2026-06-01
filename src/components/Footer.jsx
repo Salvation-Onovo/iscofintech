@@ -164,7 +164,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="lg:my-14 mx-20 lg:mx-12 justify-center items-center lg:p-10">
+        <div className="hidden lg:my-14 mx-20 lg:mx-12 justify-center items-center lg:p-10">
           <div className="flex flex-col justify-center items-center ">
             <p className="text-white text-sm">SUBSCRIBE TO NEWSLETTER</p>
             <p className="text-gray-500 text-xs mt-1">

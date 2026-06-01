@@ -263,6 +263,7 @@ const Home = () => {
                 <p className="text-sm px-3 pb-1">YOUR NAME</p>
                 <input
                   type="text"
+                  required
                   onChange={(e) => (inputs.name = e.target.value)}
                   placeholder="Enter your name"
                   className="p-3 w-96 outline-none"
@@ -272,6 +273,7 @@ const Home = () => {
                 <p className="text-sm px-3 pb-1">EMAIL ADDRESS</p>
                 <input
                   type="text"
+                  required
                   onChange={(e) => (inputs.email = e.target.value)}
                   placeholder="example@example.com"
                   className="p-3 w-96 outline-none"
@@ -281,6 +283,7 @@ const Home = () => {
                 <p className="text-sm px-3 pb-1">SUBJECT</p>
                 <input
                   type="text"
+                  required
                   onChange={(e) => (inputs.subject = e.target.value)}
                   placeholder="Title of your message"
                   className="p-3 w-96 outline-none"

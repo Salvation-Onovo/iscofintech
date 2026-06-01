@@ -50,6 +50,7 @@ const AdminLogin = () => {
                 onChange={(e) =>
                   setInputs((prev) => ({ ...prev, email: e.target.value }))
                 }
+                required
                 type="email"
                 placeholder="Enter your email"
                 className="p-3 w-full outline-none"
@@ -63,6 +64,7 @@ const AdminLogin = () => {
                 onChange={(e) =>
                   setInputs((prev) => ({ ...prev, password: e.target.value }))
                 }
+                required
                 type="password"
                 placeholder="Enter your password"
                 className="p-3 w-full outline-none"
